@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berk Işık | Web Developer Portfolio</title>
+    <title>Berk Isik | Web Developer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -67,26 +67,43 @@
             width: 100%;
             height: 220px;
             overflow: hidden;
-            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .card-preview iframe {
-            width: 200%;
-            height: 200%;
-            border: none;
-            transform: scale(0.5);
-            transform-origin: top left;
-            pointer-events: none;
+        .card-preview .preview-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            letter-spacing: -0.5px;
         }
 
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(transparent 60%, rgba(0,0,0,0.8));
-            z-index: 1;
+        .card-preview .preview-subtitle {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .preview-gamila {
+            background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 40%, #40916c 100%);
+        }
+
+        .preview-lecco {
+            background: linear-gradient(135deg, #8B0000 0%, #C41E3A 50%, #D4AF37 100%);
+        }
+
+        .preview-monte {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6741 40%, #8fbc8f 100%);
+        }
+
+        .preview-clinic {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #3b82f6 100%);
         }
 
         .card-badge {
@@ -233,11 +250,12 @@
 
     <section class="projects">
 
+        <!-- Gamila Panini -->
         <div class="card">
-            <div class="card-preview">
-                <div class="card-overlay"></div>
+            <div class="card-preview preview-gamila">
                 <span class="card-badge badge-live">Live</span>
-                <iframe src="https://gamilapanini.it" loading="lazy" sandbox="allow-same-origin"></iframe>
+                <span class="preview-title">Gamila Panini</span>
+                <span class="preview-subtitle">Lecco, Italy</span>
             </div>
             <div class="card-body">
                 <h3>Gamila Panini</h3>
@@ -251,17 +269,18 @@
                 <div class="card-actions">
                     <a href="https://gamilapanini.it" target="_blank" class="btn btn-primary">
                         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        Live Site
+                        gamilapanini.it
                     </a>
                 </div>
             </div>
         </div>
 
+        <!-- Lecco Pizzeria -->
         <div class="card">
-            <div class="card-preview">
-                <div class="card-overlay"></div>
+            <div class="card-preview preview-lecco">
                 <span class="card-badge badge-preview">Preview</span>
-                <iframe src="https://safaberk334.github.io/lecco-pizzeria/" loading="lazy" sandbox="allow-same-origin"></iframe>
+                <span class="preview-title">Pizzeria del Lago</span>
+                <span class="preview-subtitle">Lecco, Lake Como</span>
             </div>
             <div class="card-body">
                 <h3>Pizzeria del Lago</h3>
@@ -285,11 +304,12 @@
             </div>
         </div>
 
+        <!-- Monte Basso -->
         <div class="card">
-            <div class="card-preview">
-                <div class="card-overlay"></div>
+            <div class="card-preview preview-monte">
                 <span class="card-badge badge-preview">Preview</span>
-                <iframe src="https://safaberk334.github.io/monte-basso/" loading="lazy" sandbox="allow-same-origin"></iframe>
+                <span class="preview-title">Ristoro Monte Basso</span>
+                <span class="preview-subtitle">Casargo, Valsassina — 1500m</span>
             </div>
             <div class="card-body">
                 <h3>Ristoro Monte Basso</h3>
@@ -313,11 +333,12 @@
             </div>
         </div>
 
+        <!-- Visit Hair Clinic -->
         <div class="card">
-            <div class="card-preview">
-                <div class="card-overlay"></div>
+            <div class="card-preview preview-clinic">
                 <span class="card-badge badge-preview">Preview</span>
-                <iframe src="https://safaberk334.github.io/visit-hair-clinic/" loading="lazy" sandbox="allow-same-origin"></iframe>
+                <span class="preview-title">Visit Hair Clinic</span>
+                <span class="preview-subtitle">Istanbul, Turkey</span>
             </div>
             <div class="card-body">
                 <h3>Visit Hair Clinic</h3>
