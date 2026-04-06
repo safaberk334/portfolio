@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berk Isik | Web Developer Portfolio</title>
+    <title>Berk Işık | Web Developer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -74,12 +74,15 @@
             gap: 8px;
         }
 
+        /* Fallback text - visible until iframe loads */
         .card-preview .preview-title {
             font-size: 1.8rem;
             font-weight: 800;
             color: rgba(255,255,255,0.9);
             text-shadow: 0 2px 20px rgba(0,0,0,0.5);
             letter-spacing: -0.5px;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .card-preview .preview-subtitle {
@@ -88,29 +91,34 @@
             font-weight: 400;
             letter-spacing: 2px;
             text-transform: uppercase;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        .preview-gamila {
-            background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 40%, #40916c 100%);
+        /* iframe sits on top of gradient+text */
+        .card-preview iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            border: none;
+            transform: scale(0.5);
+            transform-origin: top left;
+            pointer-events: none;
+            z-index: 2;
         }
 
-        .preview-lecco {
-            background: linear-gradient(135deg, #8B0000 0%, #C41E3A 50%, #D4AF37 100%);
-        }
-
-        .preview-monte {
-            background: linear-gradient(135deg, #2c3e50 0%, #4a6741 40%, #8fbc8f 100%);
-        }
-
-        .preview-clinic {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #3b82f6 100%);
-        }
+        .preview-gamila { background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 40%, #40916c 100%); }
+        .preview-lecco { background: linear-gradient(135deg, #8B0000 0%, #C41E3A 50%, #D4AF37 100%); }
+        .preview-monte { background: linear-gradient(135deg, #2c3e50 0%, #4a6741 40%, #8fbc8f 100%); }
+        .preview-clinic { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #3b82f6 100%); }
 
         .card-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            z-index: 2;
+            z-index: 3;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.7rem;
@@ -131,9 +139,7 @@
             border: 1px solid rgba(102, 126, 234, 0.3);
         }
 
-        .card-body {
-            padding: 24px;
-        }
+        .card-body { padding: 24px; }
 
         .card-body h3 {
             font-size: 1.3rem;
@@ -163,10 +169,7 @@
             color: #999;
         }
 
-        .card-actions {
-            display: flex;
-            gap: 10px;
-        }
+        .card-actions { display: flex; gap: 10px; }
 
         .btn {
             display: inline-flex;
@@ -207,15 +210,8 @@
             border-top: 1px solid #1a1a1a;
         }
 
-        .footer p {
-            color: #555;
-            font-size: 0.85rem;
-        }
-
-        .footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
+        .footer p { color: #555; font-size: 0.85rem; }
+        .footer a { color: #667eea; text-decoration: none; }
 
         .contact-row {
             display: flex;
@@ -231,9 +227,7 @@
             transition: color 0.3s;
         }
 
-        .contact-row a:hover {
-            color: #667eea;
-        }
+        .contact-row a:hover { color: #667eea; }
 
         @media (max-width: 700px) {
             .projects { grid-template-columns: 1fr; }
@@ -256,6 +250,7 @@
                 <span class="card-badge badge-live">Live</span>
                 <span class="preview-title">Gamila Panini</span>
                 <span class="preview-subtitle">Lecco, Italy</span>
+                <iframe src="https://gamilapanini.it" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
             </div>
             <div class="card-body">
                 <h3>Gamila Panini</h3>
@@ -281,6 +276,7 @@
                 <span class="card-badge badge-preview">Preview</span>
                 <span class="preview-title">Pizzeria del Lago</span>
                 <span class="preview-subtitle">Lecco, Lake Como</span>
+                <iframe src="https://safaberk334.github.io/lecco-pizzeria/" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
             </div>
             <div class="card-body">
                 <h3>Pizzeria del Lago</h3>
@@ -310,6 +306,7 @@
                 <span class="card-badge badge-preview">Preview</span>
                 <span class="preview-title">Ristoro Monte Basso</span>
                 <span class="preview-subtitle">Casargo, Valsassina — 1500m</span>
+                <iframe src="https://safaberk334.github.io/monte-basso/" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
             </div>
             <div class="card-body">
                 <h3>Ristoro Monte Basso</h3>
@@ -339,6 +336,7 @@
                 <span class="card-badge badge-preview">Preview</span>
                 <span class="preview-title">Visit Hair Clinic</span>
                 <span class="preview-subtitle">Istanbul, Turkey</span>
+                <iframe src="https://safaberk334.github.io/visit-hair-clinic/" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
             </div>
             <div class="card-body">
                 <h3>Visit Hair Clinic</h3>
