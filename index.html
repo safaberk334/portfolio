@@ -38,7 +38,7 @@
   --maxw:1180px;
 }
 
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 
 body{
   font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -81,7 +81,7 @@ body{
 .hero{padding:82px 0 60px;text-align:center;position:relative}
 .hero::before{
   content:'';position:absolute;top:-140px;left:50%;transform:translateX(-50%);
-  width:min(760px,110vw);height:420px;pointer-events:none;
+  width:min(760px,100vw);height:420px;pointer-events:none;
   background:radial-gradient(ellipse at center,rgba(124,108,245,.20),transparent 66%);
 }
 .hero__content{position:relative}
@@ -141,7 +141,9 @@ body{
 .section__head p{color:var(--muted);font-size:1.02rem;max-width:520px;margin:0 auto}
 
 /* ---------- Project cards ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:26px}
+/* 4 proje var: genis ekranda 2x2 dengeli dursun, ucuncu sutunda tek kart kalmasin. */
+.grid{display:grid;grid-template-columns:1fr;gap:26px}
+@media(min-width:840px){.grid{grid-template-columns:repeat(2,1fr);gap:30px}}
 
 .card{
   background:var(--surface);border:1px solid var(--border-solid);border-radius:var(--radius);
@@ -165,9 +167,11 @@ body{
   padding:6px 12px;border-radius:999px;
   font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:0 3px 14px rgba(0,0,0,.5);
 }
-.tagpill--live{background:rgba(34,197,94,.18);color:#5ef09a;border:1px solid rgba(34,197,94,.42)}
-.tagpill--demo{background:rgba(124,139,245,.18);color:#b3bcff;border:1px solid rgba(124,139,245,.42)}
+/* Acik renkli ekran goruntulerinde de okunmasi icin koyu, opak zemin. */
+.tagpill--live{background:rgba(8,10,14,.82);color:#5ef09a;border:1px solid rgba(34,197,94,.55)}
+.tagpill--demo{background:rgba(8,10,14,.82);color:#b3bcff;border:1px solid rgba(124,139,245,.55)}
 .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
 .tagpill--live .dot{animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
