@@ -2,6 +2,8 @@
 
 My personal portfolio showcasing web development projects for restaurants, clinics, and local businesses.
 
+![Screenshot](screenshot.png)
+
 ## Live Site
 
 **[safaberk334.github.io/portfolio](https://safaberk334.github.io/portfolio/)**
